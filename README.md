@@ -1,0 +1,1 @@
+The purpose of this project is to support flame graph generation from .etl files (Event Tracing for Windows recordings), without any dependency on Perl or external parsing tools. This is a work in progress.
