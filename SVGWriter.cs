@@ -66,7 +66,7 @@ namespace ETLFlameGraph
         {
             float vector = 0, weight = 1, max = 1;
             int mod = 10;
-            name = _moduleRegex.Replace(name, match => match.Groups[1].Value[0] + "!" + match.Groups[2].Value);
+            name = _moduleRegex.Replace(name, match => string.IsNullOrEmpty(match.Groups[1].Value) ? string.Empty : match.Groups[1].Value[0] + "!" + match.Groups[2].Value);
             foreach (var ch in name)
             {
                 int i = (int)ch % mod;
