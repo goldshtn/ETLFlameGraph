@@ -47,6 +47,11 @@ namespace ETLFlameGraph
                 new TraceLogOptions() { ConversionLog = output });
 
             var simpleTraceLogProcess = traceLog.Processes.LastProcessWithName(processName);
+            if (simpleTraceLogProcess == null)
+            {
+                Console.Error.WriteLine("Could not find process with name {0}", processName);
+                Environment.Exit(1);
+            }
 
             var symbolReader = new SymbolReader(symOutput, SymbolPath.SymbolPathFromEnvironment);
             symbolReader.SecurityCheck = (path => true);
